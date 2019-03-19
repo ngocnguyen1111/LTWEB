@@ -96,3 +96,5 @@ del {
     color: black;
     text-decoration: line-through;
 }
+.mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.active a {background: #ff3500; color:#FFF;}
+.mainmenu-area .nav > li > a:focus {color: #FFF;}

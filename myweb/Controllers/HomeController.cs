@@ -12,7 +12,10 @@ namespace myweb.Controllers
         {
             return View();
         }
-
+        public ActionResult HomePage()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -24,6 +27,10 @@ namespace myweb.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult Category()
+        {
             return View();
         }
     }
