@@ -1,0 +1,98 @@
+﻿body {
+}
+.logo h1 {
+    font-size: 40px;
+    font-weight: 400;
+}
+img {
+    max-width: 30%;
+    height: auto;
+}
+h1 {
+    margin: 0 0 0px;
+}
+h2, h3, h4, h5, h6 {
+    margin: 0 0 15px;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+    width: 110px;
+}
+.shopping-item a {
+    color: #fff;
+}
+.shopping-item {
+    background-color: black;
+}
+a {
+    color: #ff3500;
+}
+.header-area a {
+    color: #fff;
+}
+.user-menu, .header-right ul.list-inline {
+    text-align: center;
+    background-color: black;
+}
+.shopping-item:hover {
+    background: none repeat scroll 0 0 #ff3500;
+    border-color: #ff3500;
+}
+.product-count {
+    background: none repeat scroll 0 0 #ff3500;
+}
+.shopping-item:hover a {
+    color: #fff;text-decoration: none
+}
+a:hover, a:focus {
+    color: #ff3500;
+}
+.header-area {
+    background: none repeat scroll 0 0 #000000;
+}
+.footer-top-area {
+    background: none repeat scroll 0 0 #000;
+    color: #fff;
+    padding: 35px 0 180px;
+}
+.footer-menu a {
+    display: block;
+    padding: 5px 0;
+    color: #fff;
+}
+.footer-top-area a:hover{
+    color: #ff3500;
+}
+.mainmenu-area {
+    background: none repeat scroll 0 0 #000;
+}
+body {
+    color: #fff;
+    background-color: #fff;
+}
+.mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.active a {
+    background: #ff3500;
+    color: #FFF;
+}
+.mainmenu-area ul.navbar-nav li a {
+    color: #fff;
+}
+img {
+    max-width: 100%;
+  }
+img {
+    vertical-align: middle;
+}
+.promo-area {
+    padding: 20px 0 20px;
+}
+.logo h1 {
+   
+    margin: 0px 0;
+}
+del {
+    color: black;
+    text-decoration: line-through;
+}
