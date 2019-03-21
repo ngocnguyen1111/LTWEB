@@ -1,31 +1,173 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+<div class="slider-area">
+    <!-- Slider -->
+    <div class="block-slider block-slider4">
+        <ul class="" id="bxslider-home4">
+            <li>
+                <img src="~/Content/images/banner1.jpg" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        <span style="color:orangered" class="primary">Sports High <strong>Quality</strong></span>
+                    </h2>
+                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/images/banner2.jpg" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        <span style="color:orangered" class="primary">33% <strong>off</strong></span>
+                    </h2>
+                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/images/banner3.jpg" alt="Slide">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        <span style="color:orangered" class="primary"><strong>Nike</strong></span>
+                    </h2>
+                    <h4 class="caption subtitle">Select Item</h4>
+                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/images/banner4.jpg" alt="Slide">
+                <div class="caption-group">
+                    <h4 style="color:orangered" class="caption subtitle">New & Hot</h4>
+                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- ./Slider -->
+</div> <!-- End slider area -->
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo1">
+                    <i class="fa fa-star"></i>
+                    <p>High Quality</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo2">
+                    <i class="fa fa-truck"></i>
+                    <p>Free shipping</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo4">
+                    <i class="fa fa-gift"></i>
+                    <p>New products</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End promo area -->
+<!-- Product in home -->
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+                    <h2 style="color:orangered" class="section-title">Products</h2>
+                    <div class="product-carousel">
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="~/Content/images/giay1.jpg" alt="">
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            <h2><a href="single-product.html">Nike Mercurial 2013</a></h2>
+                            <div class="product-carousel-price">
+                                <ins>$200.00</ins> <del>$225.00</del>
+                            </div>
+                        </div>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="~/Content/images/bongro1.jpg" alt="">
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            <h2><a href="single-product.html">Nike Jordan Legacy Men's Basketball</a></h2>
+                            <div class="product-carousel-price">
+                                <ins>$88.00</ins> <del>$99.00</del>
+                            </div>
+                        </div>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="~/Content/images/vot1.jpg" alt="">
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            <h2><a href="single-product.html">Badminton racket Yonex Voltric 9</a></h2>
+                            <div class="product-carousel-price">
+                                <ins>$99.00</ins> <del>$100.00</del>
+                            </div>
+                        </div>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="~/Content/images/glph1100-leg-press-2f-hack-squat-machine-250x250.jpg" alt="">
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            <h2><a href="single-product.html">Squad machine</a></h2>
+                            <div class="product-carousel-price">
+                                <ins>$999.00</ins> <del>$1111.00</del>
+                            </div>
+                        </div>
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="~/Content/images/ball-white.jpg" alt="">
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            <h2><a href="single-product.html">Soccer Ball Addidas</a></h2>
+                            <div class="product-carousel-price">
+                                <ins>$1200.00</ins> <del>$1355.00</del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End main content area -->
+<div class="brands-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="brand-wrapper">
+                    <div class="brand-list">
+                        <img src="~/Content/images/adidas-trefoil-logo.jpg" alt="">
+                        <img src="~/Content/images/asics-logo.gif" alt="">
+                        <img src="~/Content/images/fila-logo.gif" alt="">
+                        <img src="~/Content/images/new-balance-logo.gif" alt="">
+                        <img src="~/Content/images/reebok-logo.gif" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End brands area -->
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
