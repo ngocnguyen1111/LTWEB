@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 10.75" name="dbQLSPORT">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 10.875" name="dbQLSPORT">
   <DataContextMoniker Name="/dbQLSPORTDataContext" />
   <nestedChildShapes>
-    <classShape Id="d9d070f7-1323-4ebf-92e3-73f93fa9f64b" absoluteBounds="6.75, 8.125, 2, 2.3478011067708344">
+    <classShape Id="d9d070f7-1323-4ebf-92e3-73f93fa9f64b" absoluteBounds="5.75, 8.25, 2, 2.3478011067708344">
       <DataClassMoniker Name="/dbQLSPORTDataContext/ADMIN" />
       <nestedChildShapes>
-        <elementListCompartment Id="218030ad-9657-420a-8f03-f22414d2aa04" absoluteBounds="6.765, 8.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="218030ad-9657-420a-8f03-f22414d2aa04" absoluteBounds="5.765, 8.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="c36c90e5-2298-405d-a5b6-01b1ae6611b7" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
@@ -56,56 +56,56 @@
         <elementListCompartment Id="aaf83848-89b5-443d-9d0f-f1db50fc8ae9" absoluteBounds="3.515, 2.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 7.375); (5.875 : 7); (5.875 : 3.38544840494792); (6.25 : 3.38544840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.375); (5.875 : 7); (5.875 : 3.38544840494792); (6.25 : 3.38544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/DONHANG/DONHANG_CT_DONHANG" />
       <nodes>
         <classShapeMoniker Id="70d2e76b-52b0-4f87-aa7b-63675bdf70c4" />
         <classShapeMoniker Id="36e348e1-1b3b-457e-8a15-38f9a7a42089" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.35659912109375); (3.5 : 8.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.35659912109375); (3.5 : 8.35659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/KHACHHANG/KHACHHANG_DONHANG" />
       <nodes>
         <classShapeMoniker Id="6c310d1b-7e81-4e82-9328-df9632052058" />
         <classShapeMoniker Id="70d2e76b-52b0-4f87-aa7b-63675bdf70c4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 9.29890055338542); (9.5 : 9.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.75 : 9.36140055338542); (9.5 : 9.36140055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/ADMIN/ADMIN_PhanQuyen_Admin" />
       <nodes>
         <classShapeMoniker Id="d9d070f7-1323-4ebf-92e3-73f93fa9f64b" />
         <classShapeMoniker Id="6b2c9499-3c4f-4ae5-ad15-e42a6f457857" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 2.88022420247396); (6.25 : 2.88022420247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.88022420247396); (6.25 : 2.88022420247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/PRODUCT/PRODUCT_CT_DONHANG" />
       <nodes>
         <classShapeMoniker Id="90b14896-9d6f-4226-8933-3fa4091796cc" />
         <classShapeMoniker Id="36e348e1-1b3b-457e-8a15-38f9a7a42089" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 4.6651025390625); (4.5 : 5.88544840494792); (5.79166666666667 : 5.88544840494792 : JumpStart); (5.95833333333333 : 5.88544840494792 : JumpEnd); (6.25 : 5.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 4.6651025390625); (4.5 : 5.88544840494792); (5.79166666666667 : 5.88544840494792 : JumpStart); (5.95833333333333 : 5.88544840494792 : JumpEnd); (6.25 : 5.88544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/PRODUCT/PRODUCT_GIOHANG" />
       <nodes>
         <classShapeMoniker Id="90b14896-9d6f-4226-8933-3fa4091796cc" />
         <classShapeMoniker Id="4d2155b0-3fe8-411c-a948-7319aee625de" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/BRAND/BRAND_PRODUCT" />
       <nodes>
         <classShapeMoniker Id="c36c90e5-2298-405d-a5b6-01b1ae6611b7" />
         <classShapeMoniker Id="90b14896-9d6f-4226-8933-3fa4091796cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/LOAI/LOAI_PRODUCT" />
       <nodes>
         <classShapeMoniker Id="7c0a73c6-5103-4248-9883-952ee5480e3c" />
         <classShapeMoniker Id="90b14896-9d6f-4226-8933-3fa4091796cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.98599812825521); (3.5 : 2.98599812825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.98599812825521); (3.5 : 2.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbQLSPORTDataContext/BRAND/BRAND_PRODUCT1" />
       <nodes>
         <classShapeMoniker Id="c36c90e5-2298-405d-a5b6-01b1ae6611b7" />

@@ -98,3 +98,12 @@ del {
 }
 .mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.active a {background: #ff3500; color:#FFF;}
 .mainmenu-area .nav > li > a:focus {color: #FFF;}
+.owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: initial;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.block-slider img {
+    width: 900px;
+    height: 400px;
+}
