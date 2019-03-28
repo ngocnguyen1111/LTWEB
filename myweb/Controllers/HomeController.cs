@@ -16,6 +16,7 @@ namespace myweb.Controllers
             //Sắp xếp sách theo ngày cập nhật, sau đó lấy top @count 
             return data.PRODUCTs.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
+        
         public ActionResult Index()
         {
             var sp = laysanpham(5);
@@ -40,7 +41,33 @@ namespace myweb.Controllers
         {
             return View();
         }
-        public ActionResult SingleProduct()
+        
+        public ActionResult Loai()
+        {
+            var  loai = from l in data.LOAIs select l;
+            return PartialView(loai);
+        }
+        public ActionResult SPLoai(int id)
+        {
+            var sp = from s in data.PRODUCTs where s.MaLoai == id select s;
+            return View(sp);
+        }
+        public ActionResult Brands()
+        {
+            var brand = from b in data.BRANDs select b;
+            return PartialView(brand);
+        }
+        public ActionResult SPBrands(int id)
+        {
+            var sp = from s in data.PRODUCTs where s.MaBrands == id select s;
+            return View(sp);
+        }
+        public ActionResult SingleProduct(int id)
+        {
+            var sp = from s in data.PRODUCTs where s.MaSP == id select s;
+            return View(sp.Single());
+        }
+        public ActionResult Cart()
         {
             return View();
         }

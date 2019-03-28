@@ -1,6 +1,4 @@
-﻿body {
-}
-.logo h1 {
+﻿.logo h1 {
     font-size: 40px;
     font-weight: 400;
 }
@@ -68,10 +66,7 @@ a:hover, a:focus {
 .mainmenu-area {
     background: none repeat scroll 0 0 #000;
 }
-body {
-    color: #fff;
-    background-color: #fff;
-}
+
 .mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.active a {
     background: #ff3500;
     color: #FFF;
@@ -106,4 +101,16 @@ del {
 .block-slider img {
     width: 900px;
     height: 400px;
+}
+.slider-area {
+    padding-top: 10px;
+}
+body {
+    color: #000000;
+}
+thead {
+    color: #000000;
+}
+ tr {
+    color: black;
 }

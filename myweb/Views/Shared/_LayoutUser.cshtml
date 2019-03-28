@@ -23,6 +23,7 @@
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/responsive.css" rel="stylesheet" />
     <link href="~/Content/mystyle.css" rel="stylesheet" />
+    <link href="~/Content/mystyle1.css" rel="stylesheet" />
 </head>
 <body>
     <div class="header-area">
@@ -32,7 +33,7 @@
                     <div class="user-menu">
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href=@Url.Action("Cart","Home")><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
@@ -52,7 +53,7 @@
 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$0</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">0</span></a>
+                        <a href="@Url.Action("Cart","Home")">Cart - <span class="cart-amunt">$0</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">0</span></a>
                     </div>
                 </div>
             </div>
@@ -74,7 +75,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
                         <li><a href="@Url.Action("Category","Home")">Category</a></li>
-                        <li><a href="@Url.Action("SingleProducts","Home")">Single product</a></li>
+                        <li><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
                         <li><a href="@Url.Action("Cart","Home")>Cart</a></li>
                         <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
                     </ul>
@@ -112,16 +113,10 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categories</h2>
-                        <ul>
-                            <li><a href="#">Volleyball</a></li>
-                            <li><a href="#">Basketball</a></li>
-                            <li><a href="#">Soccer</a></li>
-                            <li><a href="#">Badminton</a></li>
-                            <li><a href="#">Others</a></li>
-                        </ul>
-                    </div>
+                    @Html.Action("Loai", "Home")
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    @Html.Action("Brands", "Home")
                 </div>
             </div>
         </div>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<myweb.Models.PRODUCT>
+@{
+    ViewBag.Title = "SPBrands";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>PRODUCTS OF BRANDS</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-carousel">
+                    @foreach (var sp in Model)
+                    {
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <li>
+                                    <a href="@Url.Action("Details", "HomePage", new { id = sp.MaSP})">
+                                        <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" />
+                                    </a>
+                                </li>
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                </div>
+                            </div>
+                            <h2>
+                                <a href="single-product.html">
+                                    <span>
+                                        @sp.TenSP
+                                    </span>
+                                </a>
+                            </h2>
+
+                            <div class="product-carousel-price">
+                                <ins>$200.00</ins> <del>$225.00</del>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-pagination text-center">
+                            <nav>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
