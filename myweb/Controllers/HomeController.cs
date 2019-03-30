@@ -7,7 +7,7 @@ using myweb.Models;
 namespace myweb.Controllers
 {
     [System.Runtime.InteropServices.ComVisible(true)]
-    [System.Serializable]
+
     public class HomeController : Controller
     {
         dbQLSPORTDataContext data = new dbQLSPORTDataContext();
@@ -62,10 +62,15 @@ namespace myweb.Controllers
             var sp = from s in data.PRODUCTs where s.MaBrands == id select s;
             return View(sp);
         }
-        public ActionResult SingleProduct(int id)
+        public ViewResult SingleProduct(int id)
         {
-            var sp = from s in data.PRODUCTs where s.MaSP == id select s;
-            return View(sp.Single());
+            PRODUCT sp = data.PRODUCTs.SingleOrDefault(n => n.MaSP == id);
+            if(sp==null)
+            {
+                Response.StatusCode= 404;
+                return null;
+            }
+            return View(sp);
         }
         public ActionResult Cart()
         {

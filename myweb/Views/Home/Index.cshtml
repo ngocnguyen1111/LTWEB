@@ -86,18 +86,19 @@
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <li>
-
                                         <a href="@Url.Action("SingleProduct", "Home", new { id = sp.MaSP })">
                                             <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" />
                                         </a>
                                     </li>
                                     <div class="product-hover">
                                         <a href="@Url.Action("Cart","Home")" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="@Url.Action("SingleProduct","Home")" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <a href="@Url.Action("SingleProduct","Home" ,new { id = sp.MaSP })" class="view-details-link"><i class="fa fa-link"></i> See details
+                                        </a>
+                                        <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" />
                                     </div>
                                 </div>
                                 <h2>
-                                    <a href="@Url.Action("SingleProduct","Home")">
+                                    <a href="@Url.Action("SingleProduct","Home", new { id = sp.MaSP })">
                                         <span>
                                             @sp.TenSP
                                         </span>
@@ -105,7 +106,7 @@
                                 </h2>
 
                                 <div class="product-carousel-price">
-                                    <ins>$200.00</ins> <del>$225.00</del>
+                                    @sp.Giaban
                                 </div>
                             </div>
                         }
