@@ -114,3 +114,6 @@ thead {
  tr {
     color: black;
 }
+table {
+    padding: 80px 0 130px;
+}

@@ -72,9 +72,6 @@ namespace myweb.Controllers
             }
             return View(sp);
         }
-        public ActionResult Cart()
-        {
-            return View();
-        }
+        
     }
 }

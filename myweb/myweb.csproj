@@ -197,9 +197,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,14 +217,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\90db0cf299c4beb88a45d19aa23032285b559003_0.jpg" />
     <Content Include="Content\images\adidas-trefoil-logo.jpg" />
+    <Content Include="Content\images\Aro_All_Sports_Banner.jpg" />
     <Content Include="Content\images\asics-logo.gif" />
     <Content Include="Content\images\ball-white.jpg" />
     <Content Include="Content\images\banh-bong-ro-spalding-74-529y-phucthanhsport-247x296.jpg" />
     <Content Include="Content\images\banner-brand-adidas.jpg" />
-    <Content Include="Content\images\banner1.jpg" />
     <Content Include="Content\images\banner2.jpg" />
     <Content Include="Content\images\banner3.jpg" />
     <Content Include="Content\images\banner4.jpg" />
@@ -261,7 +262,6 @@
     <Content Include="Content\images\reebok-logo.gif" />
     <Content Include="Content\images\vot1.jpg" />
     <Content Include="Content\mystyle.css" />
-    <Content Include="Content\mystyle1.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\style.css" />
@@ -342,14 +342,14 @@
     <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\Home\SingleProduct.cshtml" />
     <Content Include="Views\Home\Brands.cshtml" />
-    <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\Loai.cshtml" />
     <Content Include="Views\Home\SPLoai.cshtml" />
     <Content Include="Views\Home\SPBrands.cshtml" />
+    <Content Include="Views\User\Dangky.cshtml" />
+    <Content Include="Views\User\Dangnhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Custom\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

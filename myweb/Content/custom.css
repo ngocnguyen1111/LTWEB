@@ -1,0 +1,30 @@
+﻿
+.navbar-collapse.collapse.in {
+  background: none repeat scroll 0 0 #000000;
+  position: relative;
+  z-index: 99;
+} 
+.tbody{
+    border: 10px solid #c8b3b3;
+}
+input[type="text"], input[type="password"], input[type="email"], textarea {
+    border: 1px solid #DDE;
+    padding: 15px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+input[type="text"], input[type="password"], input[type="email"], textarea {
+    border: 1px solid #DDE;
+    padding: 15px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+input[type="submit"], button[type=submit] {
+    margin-bottom: 30px;
+}
+input#HotenKH {
+    margin-top: 40px;
+}
+input[type="Submit"] {
+    margin-top: 20px;
+}

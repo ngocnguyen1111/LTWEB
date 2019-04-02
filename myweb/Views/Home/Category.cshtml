@@ -3,7 +3,28 @@
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
+<div class="mainmenu-area">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"><a href="@Url.Action("Category","Home")">Category</a></li>
+                    <li><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> <!-- End mainmenu area -->
 <div class="product-big-title-area">
     <div class="container">
         <div class="row">

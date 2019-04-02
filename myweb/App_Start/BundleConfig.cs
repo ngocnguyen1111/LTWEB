@@ -30,7 +30,8 @@ namespace myweb
                       "~/Content/owl.carousel.css",
                       "~/Content/responsive.css",
                       "~/Content/site.css",
-                      "~/Content/mystyle.css", "~/Content/mystyle1.css"));
+                      "~/Content/mystyle.css",
+                      "~/Content/custom.css"));
                       
         }
     }
