@@ -241,6 +241,10 @@ D:\myweb\LTWEB\myweb\bin\Microsoft.Owin.Security.OAuth.xml
 D:\myweb\LTWEB\myweb\bin\Microsoft.Owin.Security.Google.xml
 D:\myweb\LTWEB\myweb\bin\Microsoft.Owin.Security.Twitter.xml
 D:\myweb\LTWEB\myweb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\myweb\LTWEB\myweb\obj\Debug\myweb.csprojResolveAssemblyReference.cache
 D:\myweb\LTWEB\myweb\obj\Debug\myweb.dll
 D:\myweb\LTWEB\myweb\obj\Debug\myweb.pdb
+D:\myweb\LTWEB\myweb\obj\Debug\myweb.csprojResolveAssemblyReference.cache
+D:\myweb\LTWEB\myweb\bin\PagedList.dll
+D:\myweb\LTWEB\myweb\bin\PagedList.Mvc.dll
+D:\myweb\LTWEB\myweb\bin\PagedList.xml
+D:\myweb\LTWEB\myweb\bin\PagedList.Mvc.xml

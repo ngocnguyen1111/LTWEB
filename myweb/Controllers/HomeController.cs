@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using myweb.Models;
+using PagedList;
+using PagedList.Mvc;
 namespace myweb.Controllers
 {
     [System.Runtime.InteropServices.ComVisible(true)]
@@ -16,32 +18,35 @@ namespace myweb.Controllers
             //Sắp xếp sách theo ngày cập nhật, sau đó lấy top @count 
             return data.PRODUCTs.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
-        
-        public ActionResult Index()
+        private List<PRODUCT> laytatca()
         {
-            var sp = laysanpham(5);
-            return View(sp);
-           
+            //Sắp xếp sách theo ngày cập nhật, sau đó lấy top @count 
+            return data.PRODUCTs.OrderBy(a => a.TenSP).ToList();
         }
-       
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+        public ActionResult Index(int ? page)
+        {
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var sp = laysanpham(7);
+            return View(sp.ToPagedList(pageNum,pageSize));
+           
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
-        public ActionResult Category()
+        public ActionResult Category(int ? page)
         {
-            return View();
+
+            int pageSize = 12;
+            int pageNum = (page ?? 1);
+            var sp = laytatca();
+            return View(sp.ToPagedList(pageNum, pageSize));
+
         }
-        
+
         public ActionResult Loai()
         {
             var  loai = from l in data.LOAIs select l;

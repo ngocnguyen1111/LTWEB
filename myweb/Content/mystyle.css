@@ -78,6 +78,7 @@ img {
     max-width: 100%;
   }
 img {
+    width:250px;
     vertical-align: middle;
 }
 .promo-area {
@@ -116,4 +117,7 @@ thead {
 }
 table {
     padding: 80px 0 130px;
+}
+h3{
+        padding-top:20px;
 }

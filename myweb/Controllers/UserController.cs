@@ -96,6 +96,7 @@ namespace myweb.Controllers
                 {
                     ViewBag.Thongbao = "Great! Login successful";
                     Session["Taikhoan"] = kh;
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                     ViewBag.Thongbao = "Username or Password uncorrect";

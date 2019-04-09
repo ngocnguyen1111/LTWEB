@@ -54,7 +54,7 @@
 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="@Url.Action("Giohang","GioHang")">Cart - <span class="cart-amunt">$0</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">0</span></a>
+                        @Html.Action("GiohangPartial", "Giohang")
                     </div>
                 </div>
             </div>
@@ -89,6 +89,7 @@
                         <ul>
                             <li><a href="#">My account</a></li>
                             <li><a href="#">Order history</a></li>
+                            <li><a href="">Front page</a></li>
                         </ul>
                     </div>
                 </div>

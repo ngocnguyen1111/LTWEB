@@ -1,8 +1,34 @@
-﻿@{
+﻿<style type="text/css">
+     /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+     #map {
+         width: 30%;
+         height: 300px;
+         float:left;
+         padding-top:30px;
+     }
+     #fb-root{
+         float:right;
+         margin-left:15px;
+         border:10px;
+     }
+     /* Optional: Makes the sample page fill the window. */
+     html, body {
+         height: 100%;
+         margin: auto;
+         padding: 10px;
+     }
+</style>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2376661622452975&autoLogAppEvents=1"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2376661622452975&autoLogAppEvents=1"></script>
+@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+
 <div class="mainmenu-area">
     <div class="container">
         <div class="row">
@@ -18,23 +44,32 @@
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li><a href="@Url.Action("Category","Home")">Category</a></li>
-                    <li><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
                     <li class="active"><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="@Url.Action("Giohang", "GioHang")">Cart</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div> <!-- End mainmenu area -->
+<strong>.</strong>
+<div><strong>WE ARE HERE</strong></div>
+<div id="map"></div>
+<script>
+        function initMap() {
+            var uluru = { lat: 10.8022525, lng: 106.6986261 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+        }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2U_dCsYw9D4jk7YZT9u-bkd66Lm98UZc&callback=initMap">
+</script>
+<div><strong>OUR FANPAGE ON FB</strong></div>
+<div class="fb-page" data-href="https://www.facebook.com/Emirates-Sport-Store-1323213077817119/" data-tabs="messages" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Emirates-Sport-Store-1323213077817119/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Emirates-Sport-Store-1323213077817119/">Emirates Sport Store</a></blockquote></div>
+<div class="fb-like" data-href="https://www.facebook.com/Emirates-Sport-Store-1323213077817119/?modal=admin_todo_tour" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>

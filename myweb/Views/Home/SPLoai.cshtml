@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<myweb.Models.PRODUCT>
+@using PagedList.Mvc;
+@model PagedList.PagedList<myweb.Models.PRODUCT>
 @{
     ViewBag.Title = "SPLoai";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -27,7 +29,7 @@
                             <div class="product-f-image">
                                 <li>
                                     <a href="@Url.Action("SingleProduct", "Home", new { id = sp.MaSP })">
-                                        <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" />
+                                        <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" width="250px" />
                                     </a>
                                 </li>
                                 <div class="product-hover">
@@ -49,35 +51,16 @@
                         </div>
                     }
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="product-pagination text-center">
-                            <nav>
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+
+        @Html.PagedListPager(Model, page => Url.Action("Category", new { page = page }))
+    </div>
+
 
 
 

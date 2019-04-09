@@ -1,26 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLSPORT" Class="dbQLSPORTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=NGOTNGOT\SQLEXPRESS;Initial Catalog=QLSPORT;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLSPORTConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ADMINS" Member="ADMINs">
-    <Type Name="ADMIN">
-      <Column Name="MaAdmin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="ADMIN_PhanQuyen_Admin" Member="PhanQuyen_Admins" ThisKey="MaAdmin" OtherKey="MaAdmin" Type="PhanQuyen_Admin" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BRANDS" Member="BRANDs">
-    <Type Name="BRAND">
-      <Column Name="MaBrands" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenBrands" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="BRAND_PRODUCT" Member="PRODUCTs" ThisKey="MaBrands" OtherKey="MaBrands" Type="PRODUCT" />
-      <Association Name="BRAND_PRODUCT1" Member="PRODUCTs1" ThisKey="MaBrands" OtherKey="MaBrands" Type="PRODUCT" />
-    </Type>
-  </Table>
   <Table Name="dbo.CT_DONHANG" Member="CT_DONHANGs">
     <Type Name="CT_DONHANG">
       <Column Name="MaDH" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -30,6 +9,25 @@
       <Column Name="Thanhtien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Association Name="DONHANG_CT_DONHANG" Member="DONHANG" ThisKey="MaDH" OtherKey="MaDH" Type="DONHANG" IsForeignKey="true" />
       <Association Name="PRODUCT_CT_DONHANG" Member="PRODUCT" ThisKey="MaSP" OtherKey="MaSP" Type="PRODUCT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ADMINS" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="UserAdmin" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PassAdmin" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BRANDS" Member="BRANDs">
+    <Type Name="BRAND">
+      <Column Name="MaBrands" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenBrands" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="BRAND_PRODUCT" Member="PRODUCTs" ThisKey="MaBrands" OtherKey="MaBrands" Type="PRODUCT" />
+      <Association Name="BRAND_PRODUCT1" Member="PRODUCTs1" ThisKey="MaBrands" OtherKey="MaBrands" Type="PRODUCT" />
     </Type>
   </Table>
   <Table Name="dbo.DONHANG" Member="DONHANGs">
@@ -42,16 +40,6 @@
       <Column Name="MaKH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="DONHANG_CT_DONHANG" Member="CT_DONHANGs" ThisKey="MaDH" OtherKey="MaDH" Type="CT_DONHANG" />
       <Association Name="KHACHHANG_DONHANG" Member="KHACHHANG" ThisKey="MaKH" OtherKey="MaKH" Type="KHACHHANG" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GIOHANG" Member="GIOHANGs">
-    <Type Name="GIOHANG">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MaGH" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayMua" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Association Name="PRODUCT_GIOHANG" Member="PRODUCT" ThisKey="MaSP" OtherKey="MaSP" Type="PRODUCT" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
@@ -74,19 +62,6 @@
       <Association Name="LOAI_PRODUCT" Member="PRODUCTs" ThisKey="MaLoai" OtherKey="MaLoai" Type="PRODUCT" />
     </Type>
   </Table>
-  <Table Name="dbo.PhanQuyen_Admin" Member="PhanQuyen_Admins">
-    <Type Name="PhanQuyen_Admin">
-      <Column Name="MaPQ" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MaAdmin" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PQ_Product" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PQ_KhachHang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PQ_DonHang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PQ_Loai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PQ_GioHang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PQ_SiteMap" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="ADMIN_PhanQuyen_Admin" Member="ADMIN" ThisKey="MaAdmin" OtherKey="MaAdmin" Type="ADMIN" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PRODUCT" Member="PRODUCTs">
     <Type Name="PRODUCT">
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -99,7 +74,6 @@
       <Column Name="MaBrands" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaLoai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="PRODUCT_CT_DONHANG" Member="CT_DONHANGs" ThisKey="MaSP" OtherKey="MaSP" Type="CT_DONHANG" />
-      <Association Name="PRODUCT_GIOHANG" Member="GIOHANGs" ThisKey="MaSP" OtherKey="MaSP" Type="GIOHANG" />
       <Association Name="BRAND_PRODUCT" Member="BRAND" ThisKey="MaBrands" OtherKey="MaBrands" Type="BRAND" IsForeignKey="true" />
       <Association Name="LOAI_PRODUCT" Member="LOAI" ThisKey="MaLoai" OtherKey="MaLoai" Type="LOAI" IsForeignKey="true" />
       <Association Name="BRAND_PRODUCT1" Member="BRAND1" ThisKey="MaBrands" OtherKey="MaBrands" Type="BRAND" IsForeignKey="true" />

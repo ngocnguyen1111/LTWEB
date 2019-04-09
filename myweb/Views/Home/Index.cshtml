@@ -1,5 +1,6 @@
-﻿@model IEnumerable<myweb.Models.PRODUCT>
-
+﻿@using myweb.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<PRODUCT>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -21,7 +22,7 @@
                     <li><a href="@Url.Action("Category","Home")">Category</a></li>
                     <li><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="@Url.Action("GioHang", "GioHang")">Cart</a></li>
                 </ul>
             </div>
         </div>
@@ -36,35 +37,25 @@
                 <img src="/Content/images/Aro_All_Sports_Banner.jpg" alt="Slide" />
                 <div class="caption-group">
                     <h2 class="caption title">
-                        <span style="color:orangered" class="primary">Sports High <strong>Quality</strong></span>
+                        <span style="color:orangered" class="primary"><strong>Sports High Quality</strong></span>
                     </h2>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
                 </div>
             </li>
             <li>
                 <img src="~/Content/images/banner2.jpg" alt="Slide">
                 <div class="caption-group">
                     <h2 class="caption title">
-                        <span style="color:orangered" class="primary">33% <strong>off</strong></span>
+                        <span style="color:orangered" class="primary"><strong>GOOD FOR HEALTHY</strong></span>
                     </h2>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
                 </div>
             </li>
             <li>
                 <img src="~/Content/images/banner3.jpg" alt="Slide">
-                <div class="caption-group">
-                    <h2 class="caption title">
-                        <span style="color:orangered" class="primary"><strong>Nike</strong></span>
-                    </h2>
-                    <h4 class="caption subtitle">Select Item</h4>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-                </div>
             </li>
             <li>
                 <img src="~/Content/images/banner4.jpg" alt="Slide">
                 <div class="caption-group">
-                    <h4 style="color:orangered" class="caption subtitle">New & Hot</h4>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    <h4 style="color:orangered" class="caption subtitle"><strong>New & Hot</strong></h4>
                 </div>
             </li>
         </ul>
@@ -111,12 +102,14 @@
                                 <div class="product-f-image">
                                     <li>
                                         <a href="@Url.Action("SingleProduct", "Home", new { id = sp.MaSP })">
-                                            <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" />
+                                            <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" width="200px"/>
                                         </a>
                                     </li>
                                     <div class="product-hover">
-                                        <a href="@Url.Action("ThemGiohang","GioHang",new { @iMaSP = sp.MaSP, @strURL = Request.Url.ToString() })" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="@Url.Action("SingleProduct","Home" ,new { id = sp.MaSP })" class="view-details-link">
+                                        <div id="cart">
+                                            <a href="@Url.Action("ThemGiohang", "GioHang", new { @iMaSP= @sp.MaSP, @strURL = Request.Url.ToString() })" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        </div>
+                                             <a href="@Url.Action("SingleProduct","Home" ,new { id = sp.MaSP })" class="view-details-link">
                                             <i class="fa fa-link"></i> See details
                                         </a>
                                         <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" />
@@ -162,3 +155,5 @@
         </div>
     </div>
 </div> <!-- End brands area -->
+@* Tao liên kết các trang  *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;

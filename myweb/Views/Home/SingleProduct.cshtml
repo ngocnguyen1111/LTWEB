@@ -1,6 +1,25 @@
 ﻿@using myweb.Models;
 @model PRODUCT
+<style type="text/css">
+    #cart a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
+        #cart a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
 @{
     ViewBag.Title = "SingleProduct";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -20,8 +39,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li><a href="@Url.Action("Category","Home")">Category</a></li>
-                    <li class="active"><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                    <li><a href="@Url.Action("Giohang", "GioHang")">Cart</a></li>
                 </ul>
             </div>
         </div>
@@ -36,7 +55,7 @@
         <div class="col-sm-6">
             <div class="product-images">
                 <div class="product-main-img">
-                    <img alt="@Model.TenSP" src="~/Content/images/@Model.Anh" />
+                    <img alt="@Model.TenSP" src="~/Content/images/@Model.Anh" width="350px" height="auto"/>
                 </div>
             </div>
         </div>
@@ -46,15 +65,9 @@
                 <div class="product-inner-price">
                     <span>@Model.Giaban VNĐ</span>
                 </div>
-
-                <form action="" class="cart">
-                   <a href="@Url.Action("ThemGiohang","GioHang", new { @iMaSP = @Model.MaSP, @strURL = Request.Url.ToString() } )"></a>
-                    <div class="quantity">
-                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                    </div>
-                    <button class="add_to_cart_button" type="submit">Add to cart</button>
-                </form>
-
+                <div id="cart">
+                        <a href="@Url.Action("ThemGiohang","GioHang", new { @iMaSP = @Model.MaSP, @strURL = Request.Url.ToString() })" class="add_to_cart_button">Add to cart</a>
+                </div>
                 <div class="product-inner-category">
                     <p>Category: <a href="">Summer</a>. Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>. </p>
                 </div>
