@@ -1,0 +1,12 @@
+﻿.logo h1 {
+    width: 165px;
+}
+iframe {
+    width: -webkit-fill-available;
+}
+td {
+    padding-bottom: 20px;
+}
+img {
+    width:250px;height:300;
+}

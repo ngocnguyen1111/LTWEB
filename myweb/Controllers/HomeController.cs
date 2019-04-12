@@ -52,20 +52,24 @@ namespace myweb.Controllers
             var  loai = from l in data.LOAIs select l;
             return PartialView(loai);
         }
-        public ActionResult SPLoai(int id)
+        public ActionResult SPLoai(int id, int ? page)
         {
-            var sp = from s in data.PRODUCTs where s.MaLoai == id select s;
-            return View(sp);
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+        var sp = from s in data.PRODUCTs where s.MaLoai == id select s;
+            return View(sp.ToPagedList(pageNum,pageSize));
         }
         public ActionResult Brands()
         {
             var brand = from b in data.BRANDs select b;
             return PartialView(brand);
         }
-        public ActionResult SPBrands(int id)
+        public ActionResult SPBrands(int id,int ? page)
         {
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
             var sp = from s in data.PRODUCTs where s.MaBrands == id select s;
-            return View(sp);
+            return View(sp.ToPagedList(pageNum, pageSize));
         }
         public ViewResult SingleProduct(int id)
         {

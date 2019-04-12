@@ -2,88 +2,88 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.75" name="dbQLSPORT">
   <DataContextMoniker Name="/dbQLSPORTDataContext" />
   <nestedChildShapes>
-    <classShape Id="f2e13400-289c-4474-ad92-258fbabc28e6" absoluteBounds="6.25, 2.5, 2, 1.7708968098958327">
-      <DataClassMoniker Name="/dbQLSPORTDataContext/CT_DONHANG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="df901960-be83-48d0-9c9d-6a4fcbadc962" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="9fd4f5b1-830f-4255-8280-5422312f447f" absoluteBounds="6.75, 5.875, 2, 2.1554996744791666">
+    <classShape Id="287b6796-5ec6-4a75-9ddf-a951afcb6f8a" absoluteBounds="6.75, 5.875, 2, 2.1554996744791666">
       <DataClassMoniker Name="/dbQLSPORTDataContext/ADMIN" />
       <nestedChildShapes>
-        <elementListCompartment Id="a03ba2e4-08ce-416d-a09b-c69a2bbbc739" absoluteBounds="6.765, 6.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f14334e8-ae5e-4732-8caf-8af22b4650df" absoluteBounds="6.765, 6.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="004b9de0-f251-4d46-9fa0-b070890e9257" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
+    <classShape Id="bc1da0b8-da31-4ebb-acff-b42ae47ff356" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/dbQLSPORTDataContext/BRAND" />
       <nestedChildShapes>
-        <elementListCompartment Id="4332ff48-b1f2-4d53-9673-7155c339b196" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2849edbc-29a5-4b1c-a092-f9494c804056" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b6667195-6fd2-4c9d-9db3-ff98d5cecadb" absoluteBounds="3.5, 6.375, 2, 1.9631982421875005">
+    <classShape Id="a44b81b5-ac42-4486-a2d1-df50ab40cab7" absoluteBounds="6.25, 2.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/dbQLSPORTDataContext/CT_DONHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cc5b6ca-5791-4dcf-8854-0ab0b598dbcb" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e86510f8-389f-4997-b734-fc533f0bbadc" absoluteBounds="3.5, 6.375, 2, 1.9631982421875005">
       <DataClassMoniker Name="/dbQLSPORTDataContext/DONHANG" />
       <nestedChildShapes>
-        <elementListCompartment Id="06d4d236-7cfa-49e9-82cf-f828cb7257ae" absoluteBounds="3.515, 6.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4966d4a6-c9dd-4c0f-b17a-1f0f18b902d6" absoluteBounds="3.515, 6.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="36f90d51-1632-4466-962f-ff9e660e65be" absoluteBounds="0.75, 6.125, 2, 2.3478011067708344">
+    <classShape Id="3f609189-6a69-4c2f-8960-24ee9c555ef9" absoluteBounds="0.75, 6.125, 2, 2.3478011067708344">
       <DataClassMoniker Name="/dbQLSPORTDataContext/KHACHHANG" />
       <nestedChildShapes>
-        <elementListCompartment Id="5a9546e3-0c68-42be-86dd-eb4790577d2c" absoluteBounds="0.765, 6.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="50f363ae-ee92-4392-adaa-9ee361661eea" absoluteBounds="0.765, 6.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="23eabe58-19dd-4bac-98bd-1261554c90c6" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="d2f4f418-c117-4d1e-98c0-9259cffbb422" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/dbQLSPORTDataContext/LOAI" />
       <nestedChildShapes>
-        <elementListCompartment Id="3f8d679d-cdf8-4722-bb41-86a3caacce7f" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0fc5d944-86b9-4ce6-b0cc-1f9594d0c23d" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="84787262-a245-4c60-a5f2-503280b480df" absoluteBounds="3.5, 2.125, 2, 2.5401025390624996">
+    <classShape Id="6bb623be-a88d-4944-ba17-f5c5d5f155a7" absoluteBounds="3.5, 2.125, 2, 2.5401025390624996">
       <DataClassMoniker Name="/dbQLSPORTDataContext/PRODUCT" />
       <nestedChildShapes>
-        <elementListCompartment Id="c3f8ef0d-b24c-47fd-b66c-e77c28de93ac" absoluteBounds="3.515, 2.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d4090269-3f05-4706-a877-0b1f6db613af" absoluteBounds="3.515, 2.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(5.5 : 8.21559895833333); (6.46875 : 8.21559895833333); (6.46875 : 4.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/DONHANG/DONHANG_CT_DONHANG" />
       <nodes>
-        <classShapeMoniker Id="b6667195-6fd2-4c9d-9db3-ff98d5cecadb" />
-        <classShapeMoniker Id="f2e13400-289c-4474-ad92-258fbabc28e6" />
+        <classShapeMoniker Id="e86510f8-389f-4997-b734-fc533f0bbadc" />
+        <classShapeMoniker Id="a44b81b5-ac42-4486-a2d1-df50ab40cab7" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 7.35659912109375); (3.5 : 7.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/KHACHHANG/KHACHHANG_DONHANG" />
       <nodes>
-        <classShapeMoniker Id="36f90d51-1632-4466-962f-ff9e660e65be" />
-        <classShapeMoniker Id="b6667195-6fd2-4c9d-9db3-ff98d5cecadb" />
+        <classShapeMoniker Id="3f609189-6a69-4c2f-8960-24ee9c555ef9" />
+        <classShapeMoniker Id="e86510f8-389f-4997-b734-fc533f0bbadc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 3.38544840494792); (6.25 : 3.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/PRODUCT/PRODUCT_CT_DONHANG" />
       <nodes>
-        <classShapeMoniker Id="84787262-a245-4c60-a5f2-503280b480df" />
-        <classShapeMoniker Id="f2e13400-289c-4474-ad92-258fbabc28e6" />
+        <classShapeMoniker Id="6bb623be-a88d-4944-ba17-f5c5d5f155a7" />
+        <classShapeMoniker Id="a44b81b5-ac42-4486-a2d1-df50ab40cab7" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/BRAND/BRAND_PRODUCT" />
       <nodes>
-        <classShapeMoniker Id="004b9de0-f251-4d46-9fa0-b070890e9257" />
-        <classShapeMoniker Id="84787262-a245-4c60-a5f2-503280b480df" />
+        <classShapeMoniker Id="bc1da0b8-da31-4ebb-acff-b42ae47ff356" />
+        <classShapeMoniker Id="6bb623be-a88d-4944-ba17-f5c5d5f155a7" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/LOAI/LOAI_PRODUCT" />
       <nodes>
-        <classShapeMoniker Id="23eabe58-19dd-4bac-98bd-1261554c90c6" />
-        <classShapeMoniker Id="84787262-a245-4c60-a5f2-503280b480df" />
+        <classShapeMoniker Id="d2f4f418-c117-4d1e-98c0-9259cffbb422" />
+        <classShapeMoniker Id="6bb623be-a88d-4944-ba17-f5c5d5f155a7" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 2.98599812825521); (3.5 : 2.98599812825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLSPORTDataContext/BRAND/BRAND_PRODUCT1" />
       <nodes>
-        <classShapeMoniker Id="004b9de0-f251-4d46-9fa0-b070890e9257" />
-        <classShapeMoniker Id="84787262-a245-4c60-a5f2-503280b480df" />
+        <classShapeMoniker Id="bc1da0b8-da31-4ebb-acff-b42ae47ff356" />
+        <classShapeMoniker Id="6bb623be-a88d-4944-ba17-f5c5d5f155a7" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

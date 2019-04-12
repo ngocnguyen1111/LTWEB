@@ -1,0 +1,14 @@
+﻿@model IEnumerable <myweb.Models.BRAND>
+<div class="col-md-3 col-sm-6 col-xs-6">
+    <div class="footer-menu">
+        <h2 class="footer-wid-title">Brands</h2> 
+      @foreach(var item in Model)
+        {
+            <ul>
+                <a href="@Url.Action("SPBrands","Home", new { id = item.MaBrands})" >
+                    @item.TenBrands
+                </a>
+            </ul>
+        }
+    </div>
+</div>

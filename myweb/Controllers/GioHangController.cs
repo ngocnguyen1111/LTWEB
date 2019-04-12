@@ -75,7 +75,7 @@ namespace myweb.Controllers
             List<Giohang> lstGiohang = Laygiohang();
             if (lstGiohang.Count == 0)
             {
-                return RedirectToAction("Index", "Home");
+                ViewBag.Thongbao = "Your cart no product";
             }
             ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
@@ -163,7 +163,16 @@ namespace myweb.Controllers
             ddh.MaKH = kh.MaKH;
             ddh.Ngaydat = DateTime.Now;
             var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
-            ddh.Ngaygiao = DateTime.Parse(ngaygiao);
+           
+            if (ddh.Ngaygiao == null)
+            {
+                ViewData["Loi"] = "Don't allow null";
+            }
+            else
+            {
+                ddh.Ngaygiao = DateTime.Parse(ngaygiao);
+                
+            }
             ddh.Tinhtranggiaohang = false;
             ddh.Dathanhtoan = false;
             data.DONHANGs.InsertOnSubmit(ddh);
@@ -172,7 +181,7 @@ namespace myweb.Controllers
             foreach (var item in gh)
             {
                 CT_DONHANG ctdh = new CT_DONHANG();
-                ctdh.MaDH= ddh.MaDH;
+                ctdh.MaDH = ddh.MaDH;
                 ctdh.MaSP = item.iMaSP;
                 ctdh.Soluong = item.iSoluong;
                 ctdh.Dongia = (decimal)item.dDongia;

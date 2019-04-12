@@ -208,7 +208,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,18 +228,38 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\final.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\images\90db0cf299c4beb88a45d19aa23032285b559003_0.jpg" />
     <Content Include="Content\images\adidas-trefoil-logo.jpg" />
+    <Content Include="Content\images\Ao-ac-milan-san-khach-1.jpg" />
+    <Content Include="Content\images\Ao-ac-milan-san-nha-1.jpg" />
+    <Content Include="Content\images\Ao-arsenal-san-khach-1.jpg" />
+    <Content Include="Content\images\Ao-arsenal-san-nha-1.jpg" />
+    <Content Include="Content\images\Ao-barca-san-khach-1.jpg" />
+    <Content Include="Content\images\Ao-bayern-san-khach-1.jpg" />
+    <Content Include="Content\images\Ao-bayern-san-nha-1.jpg" />
+    <Content Include="Content\images\Ao-braca-san-nha-1.jpg" />
+    <Content Include="Content\images\Ao-luoi-xanh-da-quang.jpg" />
+    <Content Include="Content\images\Ao-roma-san-khach-1.jpg" />
+    <Content Include="Content\images\Ao-roma-san-nha-1.jpg" />
+    <Content Include="Content\images\aogymnamcoctayden.jpg" />
+    <Content Include="Content\images\aogymnamcotayden.jpg" />
+    <Content Include="Content\images\aogymnuden.jpg" />
+    <Content Include="Content\images\aogymnukhongtay.jpg" />
     <Content Include="Content\images\Aro_All_Sports_Banner.jpg" />
     <Content Include="Content\images\asics-logo.gif" />
     <Content Include="Content\images\ball-white.jpg" />
+    <Content Include="Content\images\bang-goi-the-thao.jpg" />
     <Content Include="Content\images\banh-bong-ro-spalding-74-529y-phucthanhsport-247x296.jpg" />
     <Content Include="Content\images\banner-brand-adidas.jpg" />
     <Content Include="Content\images\banner2.jpg" />
     <Content Include="Content\images\banner3.jpg" />
     <Content Include="Content\images\banner4.jpg" />
+    <Content Include="Content\images\bo-got-the-thao.jpg" />
+    <Content Include="Content\images\Bong-2030-trang-do.jpg" />
+    <Content Include="Content\images\Bong-2030-vang-xanh.jpg" />
     <Content Include="Content\images\bongro1.jpg" />
+    <Content Include="Content\images\bongtapgym65cm.jpg" />
     <Content Include="Content\images\brand2.png" />
     <Content Include="Content\images\brand3.png" />
     <Content Include="Content\images\brand4.png" />
@@ -250,28 +269,25 @@
     <Content Include="Content\images\dung_cu_cau_long_sportslinkvn.jpg" />
     <Content Include="Content\images\fila-logo.gif" />
     <Content Include="Content\images\giay1.jpg" />
-    <Content Include="Content\images\glph1100-leg-press-2f-hack-squat-machine-250x250.jpg" />
-    <Content Include="Content\images\h4-slide.png" />
-    <Content Include="Content\images\h4-slide2.png" />
-    <Content Include="Content\images\h4-slide3.png" />
-    <Content Include="Content\images\h4-slide4.png" />
-    <Content Include="Content\images\h4-slide7.png" />
+    <Content Include="Content\images\giay3.jpg" />
     <Content Include="Content\images\hinhnenadmin.jpg" />
     <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\Mira07-Blue-1-1.jpg" />
+    <Content Include="Content\images\Mira07-Coral-1-1.jpg" />
+    <Content Include="Content\images\Mira07-Cyan-1-1.jpg" />
+    <Content Include="Content\images\Mira07-Lime-1-1.jpg" />
+    <Content Include="Content\images\Mira07-Silver-2-1.jpg" />
     <Content Include="Content\images\new-balance-logo.gif" />
     <Content Include="Content\images\nike-logo.gif" />
     <Content Include="Content\images\nikeslide.jpg" />
-    <Content Include="Content\images\product-1.jpg" />
-    <Content Include="Content\images\product-2.jpg" />
-    <Content Include="Content\images\product-3.jpg" />
-    <Content Include="Content\images\product-4.jpg" />
-    <Content Include="Content\images\product-5.jpg" />
-    <Content Include="Content\images\product-6.jpg" />
-    <Content Include="Content\images\product-thumb-1.jpg" />
-    <Content Include="Content\images\product-thumb-2.jpg" />
-    <Content Include="Content\images\product-thumb-3.jpg" />
-    <Content Include="Content\images\product-thumb-4.jpg" />
     <Content Include="Content\images\reebok-logo.gif" />
+    <Content Include="Content\images\tadoi2.5kg.jpg" />
+    <Content Include="Content\images\tatron5kg.jpg" />
+    <Content Include="Content\images\thanhtoan.png" />
+    <Content Include="Content\images\tui-giay-nike-1.jpg" />
+    <Content Include="Content\images\vo-bong-da-dai-1.png" />
+    <Content Include="Content\images\volleyball1.jpg" />
+    <Content Include="Content\images\volleyball2.jpg" />
     <Content Include="Content\images\vot1.jpg" />
     <Content Include="Content\mystyle.css" />
     <Content Include="Content\owl.carousel.css" />
@@ -299,6 +315,8 @@
       <LastGenOutput>dbQLSPORT.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\PublishProfiles\DoAnWeb.pubxml" />
+    <None Include="Properties\PublishProfiles\SportsStore.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bxslider.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -382,7 +400,9 @@
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="tinymce\tinymce.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -438,6 +458,7 @@
     <Content Include="Views\Admin\Xoasp.cshtml" />
     <Content Include="Views\Admin\Suasp.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\User\ID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

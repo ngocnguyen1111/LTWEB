@@ -1,9 +1,13 @@
-﻿using myweb.Models;
+﻿using Microsoft.AspNet.Identity;
+using myweb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
+
 
 namespace myweb.Controllers
 {
@@ -56,6 +60,10 @@ namespace myweb.Controllers
             {
                 ViewData["Loi6"] = "Email don't allow null";
             }
+            if (String.IsNullOrEmpty(ngaysinh))
+            {
+                ViewData["Loi7"] = "Don't allow null";
+            }
             else
             {
                 kh.HoTen = hoten;
@@ -67,6 +75,7 @@ namespace myweb.Controllers
                 kh.Ngaysinh = DateTime.Parse(ngaysinh);
                 data.KHACHHANGs.InsertOnSubmit(kh);
                 data.SubmitChanges();
+                ViewBag.Thongbao = "Great! Register successful";
                 return RedirectToAction("Dangnhap");
             }
             return this.Dangky();
@@ -92,17 +101,29 @@ namespace myweb.Controllers
             else
             {
                 KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.Taikhoan == tendn && n.Matkhau == matkhau);
+
                 if (kh != null)
                 {
                     ViewBag.Thongbao = "Great! Login successful";
                     Session["Taikhoan"] = kh;
                     return RedirectToAction("Index", "Home");
                 }
-                else
-                    ViewBag.Thongbao = "Username or Password uncorrect";
+                else { 
+                    ViewBag.Thongbao = "Username or Password uncorrect. You don't have account? Please click Register Now";
+                    
+                }
             }
             return View();
 
+        }
+        public PartialViewResult ID()
+        {
+            if (Session["Taikhoan"] != null)
+            {
+                KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+                ViewBag.ThongBao = kh.Taikhoan;
+            }
+            return PartialView();
         }
     }
 }

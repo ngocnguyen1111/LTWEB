@@ -39,11 +39,11 @@ namespace myweb.Controllers
             var matkhau = collection["password"];
             if (String.IsNullOrEmpty(tendn))
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                ViewData["Loi1"] = "Don't allow null";
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
+                ViewData["Loi2"] = "Input passworrd";
             }
             else
             {
@@ -52,12 +52,12 @@ namespace myweb.Controllers
                 ADMIN ad = db.ADMINs.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
                 if (ad != null)
                 {
-                    // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
                     Session["Taikhoanadmin"] = ad;
+                    ViewBag.Thongbao = "Great! Login successful";
                     return RedirectToAction("Index", "Admin");
                 }
                 else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    ViewBag.Thongbao = "User or Password uncorrect";
             }
             return View();
         }
@@ -77,7 +77,7 @@ namespace myweb.Controllers
             //Kiem tra duong dan file
             if (fileUpload == null)
             {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+                ViewBag.Thongbao = "Please choose images for this product";
                 return View();
             }
             //Them vao CSDL
@@ -91,7 +91,7 @@ namespace myweb.Controllers
                     var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
                     //Kiem tra hình anh ton tai chua?
                     if (System.IO.File.Exists(path))
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                        ViewBag.Thongbao = "Images has existed";
                     else
                     {
                         //Luu hinh anh vao duong dan
@@ -130,7 +130,7 @@ namespace myweb.Controllers
             }
             return View(sp);
         }
-        [HttpPost, ActionName("Xoasp")]
+        [HttpPost, ActionName("Remove")]
         public ActionResult Xacnhanxoa(int id)
         {
             //Lay ra doi tuong sach can xoa theo ma
@@ -172,7 +172,7 @@ namespace myweb.Controllers
             //Kiem tra duong dan file
             if (fileUpload == null)
             {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+                ViewBag.Thongbao = "Please choose images for product";
                 return View();
             }
             //Them vao CSDL
@@ -186,7 +186,7 @@ namespace myweb.Controllers
                     var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
                     //Kiem tra hình anh ton tai chua?
                     if (System.IO.File.Exists(path))
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                        ViewBag.Thongbao = "This images existed";
                     else
                     {
                         //Luu hinh anh vao duong dan
