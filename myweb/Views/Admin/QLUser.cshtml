@@ -1,0 +1,85 @@
+﻿@model PagedList.PagedList<myweb.Models.KHACHHANG>
+@using PagedList;
+@using myweb.Models;
+@using PagedList.Mvc
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}
+@{
+    ViewBag.Title = "QLUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="product-big-title-area">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="product-bit-title text-center">
+                <h2>MANAGE ACCOUNT USER</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<table class="table" border="1px">
+    <tr>
+        <th style="width: 300px">FULL NAME USER </th>
+        <th style="width: 300px">USER NAME</th>
+        <th style="width: 300px">PASSWORD </th>
+        <th style="width: 300px">EMAIL </th>
+        <th style="width: 300px">ADDRESS </th>
+        <th style="width: 300px">PHONE NUMBER</th>
+        <th style="width: 300px">BIRTHDAY </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => @item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.Taikhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.Matkhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.DiachiKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.DienthoaiKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.Ngaysinh)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@* Making page list *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("QLUser", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+
+

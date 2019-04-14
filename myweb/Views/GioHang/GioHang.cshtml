@@ -63,7 +63,7 @@
                     <input type="number" min="1" name="txtSoluong" value="@item.iSoluong" style="background-color:yellow" />
                 </td>
                 <td>@String.Format("{0:0,0}", item.dDongia) </td>
-                <td>@String.Format("{0:0,0}", item.dThanhtien) </td>
+                <td>@String.Format("{0:0,0}", item.dThanhtien)</td>
                 <td> <a href="@Url.Action("SingleProduct", "Home", new { id = item.iMaSP})"> Details</a></td>
                 <td> @Html.ActionLink("Remove", "XoaGiohang", new { @iMaSp = item.iMaSP })</td>
                 <td> <input type="submit" value="update" /></td>

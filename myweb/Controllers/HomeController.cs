@@ -20,8 +20,7 @@ namespace myweb.Controllers
         }
         private List<PRODUCT> laytatca()
         {
-            //Sắp xếp sách theo ngày cập nhật, sau đó lấy top @count 
-            return data.PRODUCTs.OrderBy(a => a.TenSP).ToList();
+                  return data.PRODUCTs.OrderBy(a => a.TenSP).ToList();
         }
 
         public ActionResult Index(int ? page)
@@ -81,6 +80,15 @@ namespace myweb.Controllers
             }
             return View(sp);
         }
-        
+        public ActionResult CTDHang(int? page)
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+                return RedirectToAction("Dangnhap");
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            return View(data.DONHANGs.ToList().OrderBy(t => t.MaDH).ToPagedList(pageNumber, pageSize));
+        }
+
+
     }
 }

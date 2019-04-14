@@ -16,12 +16,14 @@ namespace myweb.Controllers
         dbQLSPORTDataContext db = new dbQLSPORTDataContext();
         public ActionResult Index()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+                return RedirectToAction("Login");
             return View();
         }
         public ActionResult Sanpham(int? page)
         {
             int pageNumber = (page ?? 1);
-            int pageSize = 7;
+            int pageSize = 8;
             //return View(db.SACHes.ToList());
             return View(db.PRODUCTs.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
         }
@@ -52,14 +54,29 @@ namespace myweb.Controllers
                 ADMIN ad = db.ADMINs.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
                 if (ad != null)
                 {
-                    Session["Taikhoanadmin"] = ad;
                     ViewBag.Thongbao = "Great! Login successful";
+                    Session["Taikhoanadmin"] = ad;
                     return RedirectToAction("Index", "Admin");
                 }
                 else
                     ViewBag.Thongbao = "User or Password uncorrect";
             }
             return View();
+        }
+        public PartialViewResult IDadmin()
+        {
+            if (Session["Taikhoanadmin"] != null)
+            {
+                ADMIN ad = (ADMIN)Session["Taikhoanadmin"];
+                ViewBag.ThongBao = ad.HoTen;
+            }
+            return PartialView();
+        }
+        public ActionResult Logout()
+        {
+            Session.Remove("Taikhoanadmin");
+            Session.Remove("username");
+            return RedirectToAction("Login");
         }
         [HttpGet]
         public ActionResult Createnew()
@@ -109,7 +126,7 @@ namespace myweb.Controllers
         {
             //Lay ra doi tuong sach theo ma
             PRODUCT sp = db.PRODUCTs.SingleOrDefault(n => n.MaSP == id);
-            ViewBag.Masach = sp.MaSP;
+            ViewBag.MaSP = sp.MaSP;
             if (sp == null)
             {
                 Response.StatusCode = 404;
@@ -120,7 +137,7 @@ namespace myweb.Controllers
         [HttpGet]
         public ActionResult Xoasp(int id)
         {
-            //Lay ra doi tuong sach can xoa theo ma
+            //Lay ra doi tuong  can xoa theo ma
             PRODUCT sp = db.PRODUCTs.SingleOrDefault(n => n.MaSP == id);
             ViewBag.MaSP = sp.MaSP;
             if (sp == null)
@@ -148,58 +165,93 @@ namespace myweb.Controllers
         [HttpGet]
         public ActionResult Suasp(int id)
         {
-            //Lay ra doi tuong sach theo ma
+            //Lay ra doi tuong theo ma
             PRODUCT sp = db.PRODUCTs.SingleOrDefault(n => n.MaSP == id);
             ViewBag.MaSP = sp.MaSP;
+            ViewData["Image"] = sp.Anh;
             if (sp == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
             //Dua du lieu vao dropdownList
-            //Lay ds tu tabke chu de, sắp xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
-            ViewBag.MaLoai = new SelectList(db.LOAIs.ToList().OrderBy(n => n.TenLoai), "MaLoai", "TenLoai", sp.MaLoai);
-            ViewBag.MaBrands = new SelectList(db.BRANDs.ToList().OrderBy(n => n.TenBrands), "MaBrands", "TenBrands", sp.MaBrands);
+            //Lay ds tu, sắp xep tang dan 
+            ViewBag.MaLoai = new SelectList(db.LOAIs.ToList().OrderBy(n => n.TenLoai), "MaLoai", "TenLoai");
+            ViewBag.MaBrands = new SelectList(db.BRANDs.ToList().OrderBy(n => n.TenBrands), "MaBrands", "TenBrands");
             return View(sp);
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Suasp(PRODUCT sp, HttpPostedFileBase fileUpload)
+        public ActionResult Suasp(PRODUCT sp, HttpPostedFileBase fileUpload, FormCollection col)
         {
             //Dua du lieu vao dropdownload
             ViewBag.MaLoai = new SelectList(db.LOAIs.ToList().OrderBy(n => n.TenLoai), "MaLoai", "TenLoai");
             ViewBag.MaBrands = new SelectList(db.BRANDs.ToList().OrderBy(n => n.TenBrands), "MaBrands", "TenBrands");
-            //Kiem tra duong dan file
-            if (fileUpload == null)
+            //Kiem tra duong dan 
+            var image = col["ImageP"];
+            PRODUCT p = db.PRODUCTs.First(n => n.MaSP == sp.MaSP);
+            
+            if (ModelState.IsValid)
             {
-                ViewBag.Thongbao = "Please choose images for product";
-                return View();
-            }
-            //Them vao CSDL
-            else
-            {
-                if (ModelState.IsValid)
+                if (fileUpload != null)
                 {
-                    //Luu ten fie, luu y bo sung thu vien using System.IO;
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    //Luu duong dan cua file
-                    var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
-                    //Kiem tra hình anh ton tai chua?
-                    if (System.IO.File.Exists(path))
-                        ViewBag.Thongbao = "This images existed";
+                    if (Path.GetExtension(fileUpload.FileName).ToLower() == ".jpg"
+                        || Path.GetExtension(fileUpload.FileName).ToLower() == ".png"
+                        || Path.GetExtension(fileUpload.FileName).ToLower() == ".gif"
+                        || Path.GetExtension(fileUpload.FileName).ToLower() == ".jpeg"
+                        )
+                    {
+                        var fileName = Path.GetFileName(fileUpload.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
+                        if (System.IO.File.Exists(path))
+                        {
+                            ViewBag.Thongbao = "Name image existed";
+                        }
+                        else
+                        {
+                            var newImageP = fileUpload.FileName;
+                            fileUpload.SaveAs(path);
+                            p.Anh = newImageP;
+                            p.Ngaycapnhat = DateTime.Now;
+                            UpdateModel(p);
+                            db.SubmitChanges();
+                            return RedirectToAction("Sanpham");
+                        }
+                    }
                     else
                     {
-                        //Luu hinh anh vao duong dan
-                        fileUpload.SaveAs(path);
+                        ViewBag.Thongbao = "Choose image";
                     }
-                    sp.Anh = fileName;
-                    //Luu vao CSDL   
-                    UpdateModel(sp);
-                    db.SubmitChanges();
-
                 }
-                return RedirectToAction("Sanpham");
+
+                else
+                {
+                    p.Anh = image;
+                    p.Ngaycapnhat = DateTime.Now;
+                    UpdateModel(p);
+                    db.SubmitChanges();
+                    return RedirectToAction("Sanpham");
+                }
             }
+            return this.Suasp(p.MaSP);
+        }
+        //--------------------------Kết thúc quản lý sản phẩm-----------------------
+        public ActionResult QLUser(int? page)
+        {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+                return RedirectToAction("Login");
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            return View(db.KHACHHANGs.ToList().OrderBy(t => t.MaKH).ToPagedList(pageNumber, pageSize));
+        }
+        //-----------------------------------Kết thúc quản lí khách hàng-------------
+        public ActionResult QLCTDHang(int? page)
+        {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+                return RedirectToAction("Login");
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            return View(db.CT_DONHANGs.ToList().OrderBy(t => t.MaDH).ToPagedList(pageNumber, pageSize));
         }
     }
 }

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Suasp</h2>
+<h2 style="text-align:center">Edit Product</h2>
 
 @using (Html.BeginForm())
 {
@@ -18,23 +18,23 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MaSP, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div>@Model.MaSP</div>
+                <div style="font:18px; padding: 5px 0 0 5px"> @ViewBag.MaSP</div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TenSP,  new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.TenSP)
+                @Html.ValidationMessageFor(model => model.TenSP)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Giaban, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Giaban, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Giaban, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Giaban, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Giaban)
+                @Html.ValidationMessageFor(model => model.Giaban)
             </div>
         </div>
 
@@ -46,28 +46,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Anh, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Anh,  new { @class = "control-label col-md-2" })
             <div class="col-md-10"> Choose new image
                 <input type="file" name="fileUpload" />
-                <img src="@Url.Action("~/Content/images"+ Model.Anh)" width="120px" /> (Older image)
+                <img src="@Url.Content("~/Content/images/"+ Model.Anh)" width="120px" /> (Now image)
                 @*thong bao trung*@
                 @ViewBag.Thongbao
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Ngaycapnhat, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Ngaycapnhat, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Ngaycapnhat, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Ngaycapnhat)
+                @Html.ValidationMessageFor(model => model.Ngaycapnhat)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Soluongton, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Soluongton,  new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Soluongton, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Soluongton, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Soluongton)
+                @Html.ValidationMessageFor(model => model.Soluongton)
             </div>
         </div>
 
@@ -95,5 +95,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Sanpham")
 </div>

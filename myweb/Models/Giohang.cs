@@ -15,8 +15,11 @@ namespace myweb.Models
         public int iSoluong { set; get; }
         public Double dThanhtien
         {
-            get { return iSoluong * dDongia; }
+            get
+            {
+                return iSoluong * dDongia;
 
+            }
         }
         //Khoi tao gio hàng theo Masach duoc truyen vao voi Soluong mac dinh la 1
         public Giohang(int MaSP)

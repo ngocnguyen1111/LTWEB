@@ -1,12 +1,25 @@
-﻿.logo h1 {
-    width: 165px;
+﻿.product-carousel.owl-carousel.owl-theme.owl-loaded.owl-responsive-1000 {
+    overflow: hidden;
 }
-iframe {
-    width: -webkit-fill-available;
+.single-product h2 a{
+    color:orangered;
 }
-td {
-    padding-bottom: 20px;
+.product-main-img {
+    margin-bottom: 10px;
+    text-align: center;
 }
-img {
-    width:250px;height:300;
+.product-main-img img {
+    width: auto;
+}
+h2.product-name {
+    color: orangered;
+}
+.product-inner {
+    text-align: center;
+}
+ul.product-tab {
+    padding-top: 20px;
+}
+.product-breadcroumb {
+    
 }

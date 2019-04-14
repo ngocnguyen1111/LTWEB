@@ -55,15 +55,17 @@ namespace myweb.Controllers
             if (String.IsNullOrEmpty(dienthoai))
             {
                 ViewData["Loi5"] = "Input your phone number";
+
+            }
+            if (String.IsNullOrEmpty(diachi))
+            {
+                ViewData["Loi6"] = "Don't allow null";
             }
             if (String.IsNullOrEmpty(email))
             {
-                ViewData["Loi6"] = "Email don't allow null";
+                ViewData["Loi7"] = "Email don't allow null";
             }
-            if (String.IsNullOrEmpty(ngaysinh))
-            {
-                ViewData["Loi7"] = "Don't allow null";
-            }
+            
             else
             {
                 kh.HoTen = hoten;
@@ -75,8 +77,18 @@ namespace myweb.Controllers
                 kh.Ngaysinh = DateTime.Parse(ngaysinh);
                 data.KHACHHANGs.InsertOnSubmit(kh);
                 data.SubmitChanges();
-                ViewBag.Thongbao = "Great! Register successful";
-                return RedirectToAction("Dangnhap");
+
+                if (kh != null)
+                {
+                    ViewBag.Thongbao = "Great! Register successful";
+                    Session["Taikhoan"] = kh;
+                    return RedirectToAction("Dangnhap", "User");
+                }
+                else
+                {
+                    return View();
+
+                }
             }
             return this.Dangky();
         }
@@ -121,9 +133,15 @@ namespace myweb.Controllers
             if (Session["Taikhoan"] != null)
             {
                 KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
-                ViewBag.ThongBao = kh.Taikhoan;
+                ViewBag.ThongBao = kh.HoTen;
             }
             return PartialView();
+        }
+        public ActionResult Dangxuat()
+        {
+            Session.Remove("Taikhoan");
+            Session.Remove("ID");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

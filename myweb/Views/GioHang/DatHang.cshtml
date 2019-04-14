@@ -28,6 +28,17 @@
         </div>
     </div>
 </div>
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2> YOUR ORDER</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <table align="center" border="1">
     <tr style="text-align:center; font-weight:bold">
         <td>  ID PRODUCT </td>
@@ -64,7 +75,7 @@
     </tr>
 </table>
 
-<h2 style="text-align:center">YOUR ORDER</h2>
+<h1 style="text-align:center"> INFORMATION OF YOUR BILL</h1>
 @{
     KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
 }
@@ -85,14 +96,20 @@
             <td style="font-weight:bold">  @kh.DienthoaiKH </td>
         </tr>
         <tr style="height:40px">
-            <td> Date order:</td>
-            <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+            <td> Amount:</td>
+            <td style="font-weight:bold"> @ViewBag.Tongsoluong </td>
         </tr>
         <tr style="height:40px">
-            <td> Date shipping:</td>
-            <td style="font-weight:bold">
-                <input type="date" name="Ngaygiao" />
-            </td>
+            <td> Total</td>
+            <td style="font-weight:bold">@String.Format("{0:0,0}", @ViewBag.TongTien) VND</td>
+        </tr>
+        <tr style="height:40px">
+            <td> Date order:</td>
+            <td style="font-weight:bold"> @DateTime.Now.ToString("dd/MM/yyyy h:mm tt ") </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày giao hàng:</td>
+            <td style="font-weight:bold">@DateTime.Now.AddHours(72).ToString("dd/MM/yyyy")</td>
         </tr>
         <tr style="height:40px">
             <td></td>
@@ -100,6 +117,13 @@
                 <input type="Submit" value="ACCEPT ORDER" />
             </td>
         </tr>
+        <tr style="height:40px">
+            <td><h5> Please click THANHTOAN to complete this order</h5></td>
+            <td>
+                <a href="https://www.baokim.vn/payment/product/version11?business=ntmn.ngocnguyen%40gmail.com&id=&order_description=&product_name=B%C3%B3ng+r%E1%BB%95&product_price=120000&product_quantity=1&total_amount=120000&url_cancel=&url_detail=&url_success="><img src="~/Content/images/thanhtoan.png" width="100px" alt="Thanh toán an toàn với Bảo Kim !" border="0" title="Thanh toán trực tuyến an toàn dùng tài khoản Ngân hàng (VietcomBank, TechcomBank, Đông Á, VietinBank, Quân Đội, VIB, SHB,... và thẻ Quốc tế (Visa, Master Card...) qua Cổng thanh toán trực tuyến BảoKim.vn"></a>
+            </td>
+        </tr>
+        
     }
 </table>
 

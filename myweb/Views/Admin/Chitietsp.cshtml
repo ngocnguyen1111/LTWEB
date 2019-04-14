@@ -5,75 +5,60 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Chitietsp</h2>
+<h2 style="text-align:center">Details Product</h2>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.TenSP)
+            Name Product:
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.TenSP)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Giaban)
+            Price:
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Giaban)
+            @String.Format("{0:0,0}", Model.Giaban) VND
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Mota)
+            Description:
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mota)
+        <dd style="width:600px; text-align:justify">
+            @Html.Raw(Model.Mota)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Anh)
+           Images:
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Anh)
+            <img src="@Url.Content("~/Content/images/"+  Model.Anh)" width="120px" />
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Ngaycapnhat)
-        </dt>
-
+           Update in:
         <dd>
-            @Html.DisplayFor(model => model.Ngaycapnhat)
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Soluongton)
+           Amount:
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Soluongton)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.MaBrands)
+            Kinds of Product:
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.MaBrands)
+            @Html.DisplayFor(model => model.LOAI.TenLoai)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.MaLoai)
+            Brands:
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.MaLoai)
+            @Html.DisplayFor(model => model.BRAND.TenBrands)
         </dd>
-
     </dl>
 </div>
 <p>

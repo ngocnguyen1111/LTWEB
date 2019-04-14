@@ -21,7 +21,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li class="active"><a href="@Url.Action("Category","Home")">Category</a></li>
-                    <li><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
+                    <li><a href="#">Single product</a></li>
                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
                     <li><a href="@Url.Action("GioHang", "GioHang")">Cart</a></li>
                 </ul>
@@ -62,7 +62,7 @@
                                 </a>
                             </h2>
                             <div class="product-carousel-price">
-                                @sp.Giaban
+                                @String.Format("{0:0,0}", @sp.Giaban) VND
                             </div>
                             <div id="cart">
                                 <a href="@Url.Action("ThemGiohang", "GioHang", new { @iMaSP = @sp.MaSP, @strURL = Request.Url.ToString() })" class="add_to_cart_button"><i class="fa fa-shopping-cart"></i>Add to cart</a>

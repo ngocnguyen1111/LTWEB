@@ -117,21 +117,7 @@ namespace myweb.Controllers
             lstGiohang.Clear();
             return RedirectToAction("Index", "Home");
         }
-        //Cap nhat Giỏ hàng
-        public ActionResult CapnhatGiohang(int iMaSP, FormCollection f)
-        {
-
-            //Lay gio hang tu Session
-            List<Giohang> lstGiohang = Laygiohang();
-            //Kiem tra sach da co trong Session["Giohang"]
-            Giohang sanpham = lstGiohang.SingleOrDefault(n => n.iMaSP == iMaSP);
-            //Neu ton tai thi cho sua Soluong
-            if (sanpham != null)
-            {
-                sanpham.iSoluong = int.Parse(f["txtSoluong"].ToString());
-            }
-            return RedirectToAction("Giohang");
-        }
+       
         [HttpGet]
         public ActionResult DatHang()
         {
@@ -144,7 +130,6 @@ namespace myweb.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
             //Lay gio hang tu Session
             List<Giohang> lstGiohang = Laygiohang();
             ViewBag.Tongsoluong = TongSoLuong();
@@ -159,25 +144,15 @@ namespace myweb.Controllers
             //Them Don hang
             DONHANG ddh = new DONHANG();
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
-            List<Giohang> gh = Laygiohang();
             ddh.MaKH = kh.MaKH;
             ddh.Ngaydat = DateTime.Now;
-            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
-           
-            if (ddh.Ngaygiao == null)
-            {
-                ViewData["Loi"] = "Don't allow null";
-            }
-            else
-            {
-                ddh.Ngaygiao = DateTime.Parse(ngaygiao);
-                
-            }
+            ddh.Ngaygiao = DateTime.Now.AddHours(72);
             ddh.Tinhtranggiaohang = false;
             ddh.Dathanhtoan = false;
             data.DONHANGs.InsertOnSubmit(ddh);
             data.SubmitChanges();
-            //Them chi tiet don hang            
+            //Them chi tiet don hang
+            List<Giohang> gh = Laygiohang();
             foreach (var item in gh)
             {
                 CT_DONHANG ctdh = new CT_DONHANG();
@@ -194,6 +169,21 @@ namespace myweb.Controllers
         public ActionResult Xacnhandonhang()
         {
             return View();
+        }
+        //Cap nhat Giỏ hàng
+        public ActionResult CapnhatGiohang(int iMaSP, FormCollection f)
+        {
+
+            //Lay gio hang tu Session
+            List<Giohang> lstGiohang = Laygiohang();
+            //Kiem tra sach da co trong Session["Giohang"]
+            Giohang sanpham = lstGiohang.SingleOrDefault(n => n.iMaSP == iMaSP);
+            //Neu ton tai thi cho sua Soluong
+            if (sanpham != null)
+            {
+                sanpham.iSoluong = int.Parse(f["txtSoluong"].ToString());
+            }
+            return RedirectToAction("Giohang");
         }
     }
 }

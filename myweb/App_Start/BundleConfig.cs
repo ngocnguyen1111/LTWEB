@@ -31,8 +31,10 @@ namespace myweb
                       "~/Content/responsive.css",
                       "~/Content/site.css",
                       "~/Content/mystyle.css",
-                      "~/Content/custom.css"));
-                      
+                      "~/Content/custom.css",
+                      "~/Content/lastest.css", "~/Content/final.css"));
+
+
         }
     }
 }

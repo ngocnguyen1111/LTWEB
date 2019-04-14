@@ -18,9 +18,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li><a href="@Url.Action("Category","Home")">Category</a></li>
-                    <li><a href="@Url.Action("SingleProduct","Home")">Single product</a></li>
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"><a href="@Url.Action("Category","Home")">Category</a></li>
+                    <li><a href="#">Single product</a></li>
                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
                     <li><a href="@Url.Action("GioHang", "GioHang")">Cart</a></li>
                 </ul>
@@ -39,47 +39,41 @@
         </div>
     </div>
 </div>
-<div class="maincontent-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-carousel">
-                    @foreach (var sp in Model)
-                    {
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <li>
-                                    <a href="@Url.Action("SingleProduct", "Home", new { id = sp.MaSP })">
-                                        <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" width="250px" />
-                                    </a>
-                                </li>
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
+<div class="single-product-area">
+    <div class="zigzag-bottom">
+        <div class="container">
+            <div class="row">
+                @foreach (var sp in Model)
+            {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-shop-product">
+                            <div class="product-upper">
+                                <a href="@Url.Action("SingleProduct", "Home", new { id = sp.MaSP })">
+                                    <img alt="@sp.TenSP" src="~/Content/images/@sp.Anh" width="250px" />
+                                </a>
                             </div>
                             <h2>
-                                <a href="single-product.html">
+                                <a href="@Url.Action("SingleProduct", "Home", new { id = sp.MaSP })">
                                     <span>
                                         @sp.TenSP
                                     </span>
                                 </a>
                             </h2>
-
                             <div class="product-carousel-price">
-                                <ins>$200.00</ins> <del>$225.00</del>
+                                @String.Format("{0:0,0}", @sp.Giaban) VND
+                            </div>
+                            <div id="cart">
+                                <a href="@Url.Action("ThemGiohang", "GioHang", new { @iMaSP = @sp.MaSP, @strURL = Request.Url.ToString() })" class="add_to_cart_button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
     <div class="MenuTrang">
-
         @Html.PagedListPager(Model, page => Url.Action("Category", new { page = page }))
     </div>
 

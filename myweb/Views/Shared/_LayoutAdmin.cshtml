@@ -25,7 +25,6 @@
     <link href="~/Content/mystyle.css" rel="stylesheet" />
     <link href="~/Content/custom.css" rel="stylesheet" />
     <link href="~/Content/final.css" rel="stylesheet" />
-
     <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
         <script>tinymce.init({ selector:'textarea' });</script>
 </head>
@@ -38,7 +37,8 @@
                     <div class="user-menu">
                         <ul>
                             <li><a href="@Url.Action("Login","Admin")"><i class="fa fa-user"></i> Admin</a></li>
-                           
+                            <li><a href="@Url.Action("Logout","Admin")"><i class="fa fa-user"></i> Logout Admin</a></li>
+                            <li><a>@Html.Action("IDadmin", "Admin")</a></li>
                         </ul>
                     </div>
                 </div>Lo
@@ -77,7 +77,7 @@
                             @Html.ActionLink("MANAGE USER ", "User", "Admin")
                         </li>
                         <li>
-                            @Html.ActionLink("MANAGE ORDER", "Order", "Admin")
+                            @Html.ActionLink("MANAGE ORDER", "QLCTDHang", "Admin")
                         </li>
                         <li>
                             @Html.ActionLink("MANAGE PRODUCT", "Sanpham", "Admin")

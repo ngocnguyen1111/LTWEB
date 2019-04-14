@@ -2,10 +2,7 @@
 @using PagedList.Mvc;
 @model PagedList.PagedList<myweb.Models.PRODUCT>
 
-@{
-    ViewBag.Title = "Sanpham";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
+
 
 @helper Truncate(string input, int length)
 {
@@ -18,11 +15,25 @@
             @input.Substring(0, length)<text>...</text>
     }
 }
-
+@{
+    ViewBag.Title = "Sanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>INFORMATION ALL PRODUCT</</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <p>
     @Html.ActionLink("Create New", "Createnew")
 </p>
-<table class="table">
+<table class="table" border="1" style="text-align:center">
 
     <tr>
         <th style="width:200px">  IMAGES PRODUCT</th>
@@ -43,13 +54,13 @@
                 @Html.DisplayFor(modelItem => item.TenSP)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Giaban)
+                @String.Format("{0:0,0}", item.Giaban) VND
             </td>
             <td>
-                @Truncate(@item.Mota, 10)
+                @Truncate(item.Mota, 50)
             </td>
             <td>
-                <img src="~/Content/images/@item.Anh" width="150px" />
+                <img src="@Url.Content("~/Content/images/"+  item.Anh)" width="120px" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ngaycapnhat)
@@ -77,3 +88,8 @@
 
         @Html.PagedListPager(Model, page => Url.Action("Sanpham", new { page = page }))
     </div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

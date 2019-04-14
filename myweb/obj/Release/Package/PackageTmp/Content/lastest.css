@@ -1,0 +1,18 @@
+﻿.single-product-area {
+    background: #f4f4f4;
+}
+.product-upper {
+    height: 260px;
+}
+.product-upper img {
+    max-height: 265px;
+}
+.product-hover img{
+    height:inherit;
+}
+.product-f-image {
+    height: 280px;
+}
+.product-carousel.owl-carousel.owl-theme.owl-loaded.owl-responsive-1000 {
+    overflow: hidden;
+}
