@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,9 +23,10 @@ namespace myweb.Controllers
         }
         public ActionResult Sanpham(int? page)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+                return RedirectToAction("Login");
             int pageNumber = (page ?? 1);
-            int pageSize = 8;
-            //return View(db.SACHes.ToList());
+            int pageSize = 5;
             return View(db.PRODUCTs.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
         }
 
@@ -75,7 +77,7 @@ namespace myweb.Controllers
         public ActionResult Logout()
         {
             Session.Remove("Taikhoanadmin");
-            Session.Remove("username");
+            Session.Remove("HoTen");
             return RedirectToAction("Login");
         }
         [HttpGet]
@@ -87,40 +89,42 @@ namespace myweb.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Createnew(PRODUCT sp, HttpPostedFileBase fileUpload)
+        public ActionResult Createnew(PRODUCT sp, HttpPostedFileBase fileUpload, FormCollection collection)
         {
-            ViewBag.MaLoai = new SelectList(db.LOAIs.ToList().OrderBy(n => n.TenLoai), "MaLoai", "TenLoai");
-            ViewBag.MaBrands = new SelectList(db.BRANDs.ToList().OrderBy(n => n.TenBrands), "MaBrands", "TenBrands");
-            //Kiem tra duong dan file
-            if (fileUpload == null)
+
+            //Luu ten fie, luu y bo sung thu vien using System.IO;
+            var filename = Path.GetFileName(fileUpload.FileName);
+            //Luu duong dan cua file
+            var path = Path.Combine(Server.MapPath("~/Content/images"), filename);
+            //Kiem tra hình anh ton tai chua?
+            if (System.IO.File.Exists(path))
             {
-                ViewBag.Thongbao = "Please choose images for this product";
-                return View();
+                ViewBag.Thongbao = "Images has existed";
             }
-            //Them vao CSDL
             else
             {
-                if (ModelState.IsValid)
-                {
-                    //Luu ten fie, luu y bo sung thu vien using System.IO;
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    //Luu duong dan cua file
-                    var path = Path.Combine(Server.MapPath("~/Content/images"), fileName);
-                    //Kiem tra hình anh ton tai chua?
-                    if (System.IO.File.Exists(path))
-                        ViewBag.Thongbao = "Images has existed";
-                    else
-                    {
-                        //Luu hinh anh vao duong dan
-                        fileUpload.SaveAs(path);
-                    }
-                    sp.Anh = fileName;
-                    //Luu vao CSDL
-                    db.PRODUCTs.InsertOnSubmit(sp);
-                    db.SubmitChanges();
-                }
-                return RedirectToAction("Sanpham");
+                fileUpload.SaveAs(path);
             }
+            var tensp = collection["TenSP"];
+            var giaban = collection["Giaban"];
+            var mota = collection["Mota"];
+            var ngaycapnhat = collection["Ngaycapnhat"];
+            var slton = collection["Soluongton"];
+            var maloai = collection["MaLoai"];
+            var mabrands = collection["MaBrands"];
+            sp.TenSP = tensp;
+            sp.Anh = filename;
+            sp.Giaban = Decimal.Parse(giaban);
+            sp.Mota = Regex.Replace(mota, "<.*?>", String.Empty);
+            sp.Ngaycapnhat = Convert.ToDateTime(ngaycapnhat);
+            sp.Soluongton = Int32.Parse(slton);
+            sp.MaLoai = Int32.Parse(maloai);
+            sp.MaBrands = Int32.Parse(mabrands);
+            db.PRODUCTs.InsertOnSubmit(sp);
+            db.SubmitChanges();
+            ViewBag.MaLoai = new SelectList(db.LOAIs.ToList().OrderBy(n => n.TenLoai), "MaLoai", "TenLoai");
+            ViewBag.MaBrands = new SelectList(db.BRANDs.ToList().OrderBy(n => n.TenBrands), "MaBrands", "TenBrands");
+         return RedirectToAction("Sanpham");
         }
         public ActionResult Chitietsp(int id)
         {
@@ -147,7 +151,7 @@ namespace myweb.Controllers
             }
             return View(sp);
         }
-        [HttpPost, ActionName("Remove")]
+        [HttpPost, ActionName("delete")]
         public ActionResult Xacnhanxoa(int id)
         {
             //Lay ra doi tuong sach can xoa theo ma
@@ -158,8 +162,15 @@ namespace myweb.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            db.PRODUCTs.DeleteOnSubmit(sp);
-            db.SubmitChanges();
+            var filePath = Path.Combine(Server.MapPath("~/Content/images/"), sp.Anh);
+            
+                db.PRODUCTs.DeleteOnSubmit(sp);
+                db.SubmitChanges();
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            
             return RedirectToAction("Sanpham");
         }
         [HttpGet]
@@ -190,7 +201,7 @@ namespace myweb.Controllers
             //Kiem tra duong dan 
             var image = col["ImageP"];
             PRODUCT p = db.PRODUCTs.First(n => n.MaSP == sp.MaSP);
-            
+
             if (ModelState.IsValid)
             {
                 if (fileUpload != null)
