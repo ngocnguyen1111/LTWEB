@@ -1,0 +1,66 @@
+﻿@model PagedList.PagedList<myweb.Models.CT_DONHANG>
+@using PagedList;
+@using myweb.Models;
+@using PagedList.Mvc
+
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}
+@{
+    ViewBag.Title = "QLCTDHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>MANAGE DETAILS ORDER</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table cellpadding="10px" class="table" border="1px">
+    <tr>
+        <th style="width: 300px">ID ORDER </th>
+        <th style="width: 300px">ID PRODUCT </th>
+        <th style="width: 300px">PRICE </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => @item.MaDH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => @item.MaSP)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.Dongia) VND
+            </td>
+        </tr>
+    }
+
+</table>
+
+@* Making page list *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("QLCTDHang", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

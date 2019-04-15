@@ -19,11 +19,21 @@
     ViewBag.Title = "Sanpham";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2 style="text-align:center">INFORMATION ALL PRODUCT</h2>
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>INFORMATION ALL PRODUCT</</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <p>
     @Html.ActionLink("Create New", "Createnew")
 </p>
-<table class="table" border="1">
+<table class="table" border="1" style="text-align:center">
 
     <tr>
         <th style="width:200px">  IMAGES PRODUCT</th>
@@ -44,10 +54,10 @@
                 @Html.DisplayFor(modelItem => item.TenSP)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Giaban)
+                @String.Format("{0:0,0}", item.Giaban) VND
             </td>
             <td>
-                @Truncate(item.Mota, 25)
+                @Truncate(item.Mota, 50)
             </td>
             <td>
                 <img src="@Url.Content("~/Content/images/"+  item.Anh)" width="120px" />

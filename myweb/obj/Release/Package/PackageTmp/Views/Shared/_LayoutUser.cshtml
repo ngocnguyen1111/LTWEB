@@ -26,7 +26,7 @@
     <link href="~/Content/custom.css" rel="stylesheet" />
     <link href="~/Content/lastest.css" rel="stylesheet" />
     <link href="~/Content/final.css" rel="stylesheet" />
-    
+
 </head>
 
 <body>
@@ -39,6 +39,7 @@
                             <li><a href="@Url.Action("Login", "Admin")"><i class="fa fa-user"></i>Admin</a></li>
                             <li><a href="@Url.Action("GioHang", "GioHang")"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="@Url.Action("Dangnhap", "User")"><i class="fa fa-user"></i> Login</a></li>
+                            <li><a href="@Url.Action("Dangxuat", "User")"><i class="fa fa-user"></i>Logout</a></li>
                             <li><a>@Html.Action("ID", "User")</a></li>
                         </ul>
                     </div>
@@ -51,9 +52,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="logo"
-                         >
-                        <h1><a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.jpg"width="165px"></a></h1>
+                    <div class="logo">
+                        <h1><a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.jpg" width="165px"></a></h1>
                     </div>
                 </div>
 
@@ -144,5 +144,29 @@
     <!-- Slider -->
     <script src="~/Scripts/bxslider.min.js"></script>
     <script src="~/Scripts/script.slider.js"></script>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v3.2'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+         attribution=setup_tool
+         page_id="1323213077817119"
+         theme_color="#0084ff">
+    </div>
 </body>
 </html>
